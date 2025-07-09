@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { PokemonService } from '../../services/pokemon.service';
+import { Pokemon } from '../../models/pokemon.model';
 
 @Component({
   selector: 'app-pokemon-search',
@@ -12,13 +13,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PokemonSearchComponent {
   pokemonName: string = '';
-  pokemonData: any;
+  pokemonData?: Pokemon;
   isLoading: boolean = false;
   errorMessage: string = '';
 
   animateCard = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private pokemonService: PokemonService) {}
 
   search() {
     const name = this.pokemonName.trim().toLowerCase();
@@ -43,25 +44,24 @@ export class PokemonSearchComponent {
 
     this.isLoading = true;
     this.errorMessage = '';
-    this.pokemonData = null;
+    this.pokemonData = undefined;
 
-    this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-      .subscribe({
-        next: (data) => {
-          this.pokemonData = data;
-          // Guardar en sessionStorage
-          sessionStorage.setItem(name, JSON.stringify(data));
+    this.pokemonService.getPokemon(name).subscribe({
+      next: (data) => {
+        this.pokemonData = data;
+        // Guardar en sessionStorage
+        sessionStorage.setItem(name, JSON.stringify(data));
 
-          this.animateCard = false;
-          this.isLoading = false;
-          setTimeout(() => {
-            this.animateCard = true;
-          }, 0);
-        },
-        error: (err) => {
-          this.errorMessage = 'No se encontró el Pokémon.';
-          this.isLoading = false;
-        }
-      });
+        this.animateCard = false;
+        this.isLoading = false;
+        setTimeout(() => {
+          this.animateCard = true;
+        }, 0);
+      },
+      error: () => {
+        this.errorMessage = 'No se encontró el Pokémon.';
+        this.isLoading = false;
+      }
+    });
   }
 }
