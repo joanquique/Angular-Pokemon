@@ -1,1 +1,188 @@
-/* You can add global styles to this file, and also import other style files */
+// Variables
+$font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$color-primary: #3b82f6;  // azul brillante
+$color-primary-dark: #2563eb;
+$color-secondary: #64748b; // gris azulado
+$color-bg: #f9fafb;
+$color-text: #1f2937; // gris oscuro
+$color-error: #ef4444; // rojo
+
+// Mixins
+@mixin respond($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: 640px) { @content; }
+  } @else if $breakpoint == medium {
+    @media (max-width: 768px) { @content; }
+  } @else if $breakpoint == large {
+    @media (max-width: 1024px) { @content; }
+  }
+}
+
+// Reset básico y base
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family;
+  background-color: $color-bg;
+  color: $color-text;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+  color: $color-primary-dark;
+}
+
+// Contenedor central y responsive
+.container {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+
+  @include respond(small) {
+    margin: 1rem auto;
+  }
+}
+
+// Inputs y botones
+input[type="text"], input[type="search"], input, textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 8px rgba($color-primary, 0.4);
+  }
+}
+
+button {
+  background-color: $color-primary;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+
+  &:hover {
+    background-color: $color-primary-dark;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:disabled {
+    background-color: lighten($color-primary, 30%);
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+// Mensajes de error
+.error-message {
+  color: $color-error;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+// Card simple para datos de Pokémon
+.card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  margin-top: 1.5rem;
+  text-align: center;
+
+  img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Transición suave para imágenes
+img {
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+// Responsive tweaks para móvil
+@include respond(small) {
+  .card {
+    max-width: 90vw !important;  // que no pase del ancho del móvil
+    padding: 1rem;
+    
+    img {
+      max-width: 120px;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@keyframes slideUpFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-animate {
+  animation: slideUpFadeIn 0.5s ease forwards;
+}
+
+@include respond(small) {
+  .card {
+    max-width: 90vw !important;
+    padding: 1rem;
+
+    img {
+      max-width: 120px;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+

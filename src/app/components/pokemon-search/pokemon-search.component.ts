@@ -16,6 +16,8 @@ export class PokemonSearchComponent {
   isLoading: boolean = false;
   errorMessage: string = '';
 
+  animateCard = false;
+
   constructor(private http: HttpClient) {}
 
   search() {
@@ -32,7 +34,11 @@ export class PokemonSearchComponent {
       .subscribe({
         next: (data) => {
           this.pokemonData = data;
+          this.animateCard = false;
           this.isLoading = false;
+          setTimeout(() => {
+            this.animateCard = true; // activa animación
+          }, 0);
         },
         error: (err) => {
           this.errorMessage = 'No se encontró el Pokémon.';
