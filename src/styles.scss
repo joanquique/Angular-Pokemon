@@ -1,5 +1,5 @@
 // Variables
-$font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 $color-primary: #3b82f6;  // azul brillante
 $color-primary-dark: #2563eb;
 $color-secondary: #64748b; // gris azulado
@@ -120,6 +120,16 @@ button {
   h4 {
     text-transform: capitalize;
     margin-bottom: 0.5rem;
+  }
+
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3); // sombra azul suave
+  }
+
+  p {
+    margin-bottom: 0.75rem;
   }
 }
 
