@@ -1,59 +1,55 @@
-# AngularPokemon
+## Angular Pokémon Search
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
+Aplicación frontend en Angular para buscar Pokémon usando la API pública de PokéAPI.
 
-## Development server
+---
 
-To start a local development server, run:
+## Tecnologías y dependencias necesarias
 
-```bash
-ng serve
-```
+- [Node.js](https://nodejs.org/) v14 o superior (incluye npm)
+- Angular CLI (se recomienda instalar globalmente):
+  
+  ```bash
+  npm install -g @angular/cli
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Instalación y ejecución local
+# Clona o descarga el repositorio.
 
-## Code scaffolding
+En la raíz del proyecto, instala las dependencias:
+    npm install
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Para ejecutar la aplicación en modo desarrollo:
+    ng serve
 
-```bash
-ng generate component component-name
-```
+Abre tu navegador y navega a:
+    http://localhost:4200
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+# Build para producción
+Para crear la versión optimizada lista para despliegue:
+    ng build --configuration production
 
-```bash
-ng generate --help
-```
+La carpeta generada con la app para producción es:
+    dist/browser
 
-## Building
+# Despliegue en Netlify
+La aplicación está desplegada en Netlify:
 
-To build the project run:
+https://startling-crumble-afdd87.netlify.app/
 
-```bash
-ng build
-```
+# Tiempo estimado de desarrollo
+El tiempo que me tomó desarrollar esta App fue de 2 horas aproximadamente, tomando en cuenta los siguientes puntos
+    
+    Desarrollo del componente de búsqueda.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+    Implementación de caché con sessionStorage.
 
-## Running unit tests
+    Manejo de errores y animaciones.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+    Refactorización a servicios y modelos.
 
-```bash
-ng test
-```
+    Despliegue y pruebas.
 
-## Running end-to-end tests
+## Uso
+    Ingresa el nombre de un Pokémon en el campo de búsqueda y presiona "Buscar" o Enter. La aplicación mostrará la imagen, tipos, altura y peso del Pokémon. Si el nombre no existe o hay un error de red, mostrará un mensaje de error.
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# ¡Gracias por revisar la aplicación! Cualquier duda o sugerencia, estoy a disposición.
