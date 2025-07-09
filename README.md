@@ -39,17 +39,17 @@ https://startling-crumble-afdd87.netlify.app/
 ## Tiempo estimado de desarrollo
 El tiempo que me tomó desarrollar esta App fue de 2 horas aproximadamente, tomando en cuenta los siguientes puntos
     
-    Desarrollo del componente de búsqueda.
+Desarrollo del componente de búsqueda.
 
-    Implementación de caché con sessionStorage.
+Implementación de caché con sessionStorage.
 
-    Manejo de errores y animaciones.
+Manejo de errores y animaciones.
 
-    Refactorización a servicios y modelos.
+Refactorización a servicios y modelos.
 
-    Despliegue y pruebas.
+Despliegue y pruebas.
 
 # Uso
-    Ingresa el nombre de un Pokémon en el campo de búsqueda y presiona "Buscar" o Enter. La aplicación mostrará la imagen, tipos, altura y peso del Pokémon. Si el nombre no existe o hay un error de red, mostrará un mensaje de error.
+Ingresa el nombre de un Pokémon en el campo de búsqueda y presiona "Buscar" o Enter. La aplicación mostrará la imagen, tipos, altura y peso del Pokémon. Si el nombre no existe o hay un error de red, mostrará un mensaje de error.
 
 ## ¡Gracias por revisar la aplicación! Cualquier duda o sugerencia, estoy a disposición.
